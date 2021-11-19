@@ -1,10 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NewsPage from "./pages/NewsPage";
+import Home from "./pages/Home";
 
 function App() {
-  return <Route path="/:category?" element={<NewsPage />} />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/news/:category" element={<NewsPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
